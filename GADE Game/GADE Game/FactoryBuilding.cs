@@ -27,7 +27,7 @@ namespace GADE_Game
         string unitType;
         int ySpawn;
 
-        public FactoryBuilding(int xPos, int yPos, string team, string type) : base(xPos, yPos, 40, 4, team, 'B')
+        public FactoryBuilding(int xPos, int yPos, string team, string type) : base(xPos, yPos, 40, 4, team, 'B')//constructor
         {
             unitType = type;
             name = "Factory";
@@ -46,12 +46,12 @@ namespace GADE_Game
             sym = 'W';
         }
 
-        public override string ToString()
+        public override string ToString()//neatly formatted output
         {
                 return "Position: " + XPos + ", " + YPos + " | Health: " + Health + "/" + maxHealth + " | Team: " + Team;
         }
 
-        public Unit Spawn()
+        public Unit Spawn()//spawns a unit
         {
             Unit u;
 
@@ -72,7 +72,7 @@ namespace GADE_Game
             return Spawn();
         }
 
-        public override string Save()
+        public override string Save()//returns building info to save
         {
             return xPos + "," + yPos + "," + team + "," + unitType + "," + health;
         }

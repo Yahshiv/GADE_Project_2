@@ -8,6 +8,7 @@ namespace GADE_Game
 {
     abstract class Unit
     {
+        //variable declaration
         protected int xPos, yPos, health, maxHealth, speed, atk;
         protected string team;
         protected double range;
@@ -17,7 +18,7 @@ namespace GADE_Game
 
         protected string name;
 
-        public Unit(int xPos, int yPos, int health, int speed, int atk, double range, string team, char sym)
+        public Unit(int xPos, int yPos, int health, int speed, int atk, double range, string team, char sym)//constructor
         {
             this.xPos = xPos;
             this.yPos = yPos;
@@ -29,14 +30,14 @@ namespace GADE_Game
             this.team = team;
             this.sym = sym;
         }
-
+        //abstract methods
         public abstract void Move(Unit target);
         public abstract void Attack(Unit targetUnit);
         public abstract bool IsInRange(Unit targetUnit);
         public abstract Unit SeekTarget(Unit[] units);
         public abstract void Die();
         public abstract override string ToString();
-
+        //abstract fields
         public abstract int XPos { get; set; }
         public abstract int YPos { get; set; }
         public abstract int Health { get; set; }

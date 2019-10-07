@@ -8,14 +8,15 @@ namespace GADE_Game
 {
     abstract class Building
     {
+        //variables
         protected int xPos, yPos, health, maxHealth, speed;
         protected string team, name;
         protected char sym;
-
+        //absract methods
         public abstract void Die();
         public abstract override string ToString();
 
-        public Building(int xPos, int yPos, int health, int speed, string team, char sym)
+        public Building(int xPos, int yPos, int health, int speed, string team, char sym)//constructor
         {
             this.xPos = xPos;
             this.yPos = yPos;
@@ -25,9 +26,9 @@ namespace GADE_Game
             this.team = team;
             this.sym = sym;
         }
-
-        public abstract Unit Work();
-
+        
+        public abstract Unit Work();//abstract method
+        //abstract fields
         public abstract int XPos { get; }
         public abstract int YPos { get; }
         public abstract int Health { get; set; }
@@ -38,6 +39,6 @@ namespace GADE_Game
 
         public abstract string Name { get; }
 
-        public abstract string Save();
+        public abstract string Save();//absract method
     }
 }

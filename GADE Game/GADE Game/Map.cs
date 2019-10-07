@@ -16,7 +16,7 @@ namespace GADE_Game
         int numUnits, numBuildings;
         string[] teams = { "RED", "BLUE" };
 
-        public Map(int numUnits, int numBuildings)
+        public Map(int numUnits, int numBuildings)//constructor
         {
             this.numUnits = numUnits;
             this.numBuildings = numBuildings;
@@ -27,17 +27,17 @@ namespace GADE_Game
             UpdateMap();
         }
 
-        public Unit[] Units
+        public Unit[] Units//array accessor
         {
             get { return units; }
         }
 
-        public Building[] Buildings
+        public Building[] Buildings//array accessor
         {
             get { return buildings; }
         }
 
-        public void Randomize()
+        public void Randomize()//fills map and arrays
         {
             for (int y = 0; y < 20; y++)
             {
@@ -124,7 +124,7 @@ namespace GADE_Game
             }
         }
 
-        public string GetMapStr()
+        public string GetMapStr()//returns string of map info
         {
             string mapStr = "";
             for(int row = 0; row < GADEGame.MAPHEIGHT; row++)
@@ -138,12 +138,12 @@ namespace GADE_Game
             return mapStr;
         }
 
-        public string UnitAtPos(int col, int row)
+        public string UnitAtPos(int col, int row)//returns the string element at this position
         {
             return map[col, row];
         }
 
-        public void UpdateMap()
+        public void UpdateMap()//updates the map array
         {
             for (int y = 0; y < 20; y++)
             {
@@ -167,7 +167,7 @@ namespace GADE_Game
             }
         }
 
-        public RichTextBox GetUnitInfo(RichTextBox tb)
+        public RichTextBox GetUnitInfo(RichTextBox tb)//returns all the unit info strings
         {
             tb.Text = "";
             foreach (Unit u in units)
@@ -180,7 +180,7 @@ namespace GADE_Game
             return tb;
         }
 
-        public RichTextBox GetBuildingInfo(RichTextBox tb)
+        public RichTextBox GetBuildingInfo(RichTextBox tb)//returns all the building info strings
         {
             tb.Text = "";
             foreach (Building b in buildings)
@@ -190,7 +190,7 @@ namespace GADE_Game
             return tb;
         }
 
-        public void SaveUnits()
+        public void SaveUnits()//writes the unit save info for each unit
         {
             FileStream input = new FileStream("SavedUnits.txt", FileMode.Create, FileAccess.Write);
             StreamWriter sw = new StreamWriter(input);
@@ -202,7 +202,7 @@ namespace GADE_Game
             input.Close();
         }
 
-        public void SaveBuildings()
+        public void SaveBuildings()//writes the save building info for each building
         {
             FileStream input = new FileStream("SavedBuildings.txt", FileMode.Create, FileAccess.Write);
             StreamWriter sw = new StreamWriter(input);
@@ -214,7 +214,7 @@ namespace GADE_Game
             input.Close();
         }
 
-        public void LoadUnits()
+        public void LoadUnits()//loads units from save
         {
             FileStream input = new FileStream("SavedUnits.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(input);
@@ -249,7 +249,7 @@ namespace GADE_Game
             UpdateMap();
         }
 
-        public void LoadBuildings()
+        public void LoadBuildings()//loads buildings from save
         {
             FileStream input = new FileStream("SavedBuildings.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(input);

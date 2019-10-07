@@ -8,6 +8,7 @@ namespace GADE_Game
 {
     class ResourceBuilding : Building
     {
+        //overridden fields
         public override int XPos { get => xPos; }
 
         public override int YPos { get => yPos; }
@@ -26,23 +27,23 @@ namespace GADE_Game
 
         string resType;
         int res = 0, resRate=6, resPool=100;
-
-        public ResourceBuilding(int xPos, int yPos, string team) : base(xPos, yPos, 25, 1, team, 'P')
+        
+        public ResourceBuilding(int xPos, int yPos, string team) : base(xPos, yPos, 25, 1, team, 'P')//constructor
         {
             name = "Resource";
         }
-
+        //overridden methods
         public override void Die()
         {
             sym = 'W';
         }
 
-        public override string ToString()
+        public override string ToString()//neatly formatted output
         {
                 return "Position: " + XPos + ", " + YPos + " | Health: " + Health + "/" + maxHealth + " | Team: " + Team + " | Resources: " + res + "/" + (resPool+res);
         }
 
-        public void genRes()
+        public void genRes()//generates resources (not inherited)
         {
             if(resRate > resPool)
             {
@@ -56,13 +57,13 @@ namespace GADE_Game
             }
         }
 
-        public override Unit Work()
+        public override Unit Work()//common method for buildings
         {
             genRes();
             return null;
         }
 
-        public override string Save()
+        public override string Save()//returns formatted building info to save
         {
             return xPos + "," + yPos + "," + team + "," + null + "," + health;
         }

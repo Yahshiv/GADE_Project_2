@@ -8,11 +8,11 @@ namespace GADE_Game
 {
     class MeleeUnit : Unit
     {
-        public MeleeUnit(int x, int y, string team) : base(x, y, 16, 1, 5, 1.9, team, 'M')
+        public MeleeUnit(int x, int y, string team) : base(x, y, 16, 1, 5, 1.9, team, 'M')//constructor
         {
             name = "Barbarian";
         }
-
+        //overridden fields
         public override int XPos
         {
             get => xPos;
@@ -39,7 +39,7 @@ namespace GADE_Game
 
         public override bool IsDead { get => isDead; }
 
-
+        //overridden methods
         public override void Attack(Unit target)
         {
             isBattling = true;
@@ -73,7 +73,7 @@ namespace GADE_Game
         public override void Move(Unit target)
         {
             {
-                if (Health >= maxHealth * 0.25)
+                if (Health >= maxHealth * 0.25)//if healths over 25%
                 {
                     if (Math.Pow(XPos - target.XPos, 2) >= Math.Pow(YPos - target.YPos, 2))
                     {
